@@ -826,6 +826,67 @@ h3 {
     cursor: pointer;
 }
 
+/* ===== Written Reviews Section ===== */
+.reviews {
+    background: var(--color-white);
+}
+
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+}
+
+.review-card {
+    background: var(--color-cream);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    position: relative;
+}
+
+.review-card .stars {
+    color: var(--color-gold);
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-sm);
+}
+
+.review-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--color-text);
+    font-style: italic;
+    margin-bottom: var(--spacing-md);
+}
+
+.review-author {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.author-name {
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.author-location {
+    font-size: 0.85rem;
+    color: var(--color-gray);
+}
+
+@media (max-width: 1024px) {
+    .reviews-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ===== Testimonials Section ===== */
 .testimonials {
     background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-white) 100%);
