@@ -855,6 +855,7 @@ h3 {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     transition: all var(--transition-normal);
     position: relative;
+    cursor: pointer;
 }
 
 .video-card::before {
@@ -870,6 +871,7 @@ h3 {
     opacity: 0;
     transition: opacity var(--transition-normal);
     pointer-events: none;
+    z-index: 3;
 }
 
 .video-card:hover {
@@ -894,6 +896,71 @@ h3 {
     width: 100%;
     height: 100%;
     border-radius: inherit;
+}
+
+/* Video thumbnail and custom play button */
+.video-thumb {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.play-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.play-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 54%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 22px solid var(--color-primary);
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+}
+
+.play-btn:hover {
+    background: var(--color-gold);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.play-btn:hover::before {
+    border-left-color: var(--color-white);
+}
+
+.video-card.wide .play-btn {
+    width: 80px;
+    height: 80px;
+}
+
+.video-card.wide .play-btn::before {
+    border-left-width: 26px;
+    border-top-width: 16px;
+    border-bottom-width: 16px;
+}
+
+/* When video is playing */
+.video-card.playing .video-thumb,
+.video-card.playing .play-btn {
+    display: none;
 }
 
 /* ===== CTA Section ===== */
